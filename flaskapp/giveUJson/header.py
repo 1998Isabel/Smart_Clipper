@@ -1,6 +1,6 @@
 #this is header
-from searchrobot import *
-from const import *
+from giveUJson.searchrobot import *
+# from const import *
 import json
 
 def strFinder(strr,filename = 'data.json'):
@@ -19,6 +19,7 @@ class jasoner(object):
 	def __init__(self):
 		self.outputer = []
 		self.book = book()
+		# Change the data.json location
 	def callable(self,strr,filename = '../data.json'):
 		worker = {}
 		worker['Int'] =  get_search_result(strr)
@@ -27,7 +28,9 @@ class jasoner(object):
 		with open(filename, 'w') as outfile:
 			self.outputer.append(worker)
 			json.dump(self.outputer, outfile)
-		return
+		return self.outputer
+	def return_json(self):
+		return self.outputer
 
 if __name__ == "__main__":
 	print("tester")
