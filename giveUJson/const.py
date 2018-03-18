@@ -1,0 +1,2 @@
+NO_STR = 0
+HAS_STR = 1
