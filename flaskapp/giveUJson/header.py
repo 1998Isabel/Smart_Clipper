@@ -20,9 +20,23 @@ class jasoner(object):
 		self.outputer = []
 		self.book = book()
 		# Change the data.json location
+	# def callable(self,strr,filename = '../data.json'):
+	# 	worker = {}
+	# 	worker['Int'] =  get_search_result(strr)
+	# 	worker['Dic'] = self.book.get_data(strr)
+	# 	print(worker['Dic'])
+	# 	with open(filename, 'w') as outfile:
+	# 		self.outputer.append(worker)
+	# 		json.dump(self.outputer, outfile)
 	def callable(self,strr,filename = '../data.json'):
 		worker = {}
-		worker['Int'] =  get_search_result(strr)
+		tmp = get_search_result(strr)
+
+		worker['Int'] = {}
+		worker['Int']['name'] = strr
+		worker['Int']['description'] = tmp[strr]["description"]
+		worker['Int']['url'] = tmp[strr]['url']
+
 		worker['Dic'] = self.book.get_data(strr)
 		print(worker['Dic'])
 		with open(filename, 'w') as outfile:
