@@ -50,7 +50,7 @@ Smart_Clippr
 │   │   face.json : output result of imgurAPI result
 |
 └───teacher_side
-|    │   
+|   │   
 |
 |
 └───student_side_app_present : an Android app
