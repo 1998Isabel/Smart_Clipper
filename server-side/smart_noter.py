@@ -52,7 +52,7 @@ def show_variable(username):
 
 @app.route('/data/json')
 def show_json():
-    # show the post with the given id, the id is an integer. To request the student's data 
+    # show the post with the given id, the id is an integer. To request the student's data
     # cellphone!!
     print('----------http://163.28.17.68/data/json----------')
     return jsonify(r.return_json())
@@ -151,7 +151,7 @@ def student_happiness(emotion_score):
 
     global student_attandence_happiness
     global student_attandance_happiness_json
-    student_attandence_happiness["student_1"][-1] = emotion_score 
+    student_attandence_happiness["student_1"][-1] = emotion_score
     student_attandance_happiness_json = json.dumps(student_attandence_happiness)
     print("----------Attandence and happiness state!!!!----------")
     print(student_attandance_happiness_json)
@@ -161,4 +161,3 @@ if __name__ == '__main__':
     r = js()
     question_name = []
     app.run( debug = True, host='0.0.0.0')
-
