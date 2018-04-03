@@ -46,15 +46,15 @@ Smart_Clippr
 │       |   searchrobot.py : a search engine for student's question words
 │   
 └───student_side
-│   │   imgurAPI.py : a script to return microsoft face api result
+│   │   imgurAPI.py : a script to take pictures and return microsoft face api result in json every 10 seconds
 │   │   face.json : output result of imgurAPI result
+|   |   student.py : a script to controll a button for students to press
 |
 └───teacher_side
-|   │   
+|   │   SpeechProccesor_GoogleT.py : Using google speech_proccesor api to generate word list
+|   |   teachert.py : Using SpeechProccesor_GoogleT.py and return keyword to students
 |
-|
-└───student_side_app_present : an Android app
-|        
+└───student_side_app_present : an Android app        
 |
 └───teacher_data_present
 |   |   abbsent.py : a script to show students' attendance, happiness
