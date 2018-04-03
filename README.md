@@ -1,43 +1,93 @@
-# 上課的救星-智慧筆記
+# Smart-Clipper 智慧剪貼簿
 
 ## 概要
+### **2018 makeNTU 作品**
+![](https://i.imgur.com/Xjy3XKk.png)
+* 伺服器端
+    * OS: Ubuntu 16.04 LTS.
+    * Flask app
+    * 功能: state儲存、資料的傳送、Uderstood自然語意理解API
+* 學生端
+    * OS: Raspbian
+    * Raspberry Pi 3
+    * 功能: 學生按鍵觸發、Pi camera定時照相
+* 學生端資料呈現
+    * Android app
+    * 功能: 即時更新server上學生問題、資料呈現（定義、網址）、可輸入手動輸入查詢單詞、課後問題回答上傳
+* 老師端
+    * OS: Raspbian
+    * Raspberry Pi 3
+    * 收音模組固定收音、語音辨識api分析老師上課內容成字串、即時更新學生state
+* 老師端資料呈現
+    * 學生端的所有問題單詞長條圖呈現、學生出缺席以及開心分數呈現
 
-![](https://i.imgur.com/Y2C7deb.png)
+## 發想
+* 專有名詞很多的課 ex.生物、法律...
+* 教授上課很快，沒空抄筆記
+* 教授想掌握學生狀況
+* 建立有別於舉手的學生提問與搜尋管道
+* 增進教學上的互動
+* 以簡單、便利、不用分心的方式提出問題 -- 按鈕式提問
 
-## 工具
+## 檔案介紹及使用
+```
+Smart_Clippr
+│   README.md
+│   data.json : a json file to store student's question key word
+│
+└───server_side
+|   |   smart_noter.py : flask API main script
+│   │   Q.json : Understood returned data
+│   │   nlu.py : Understood API script
+│   │
+│   └───giveUJson
+│       │   const.py : defined const
+│       │   header.py : main  script to generate student's question words
+│       |   searchrobot.py : a search engine for student's question words
+│   
+└───student_side
+│   │   imgurAPI.py : a script to return microsoft face api result
+│   │   face.json : output result of imgurAPI result
+|
+└───teacher_side
+|    │   
+|
+|
+└───student_side_app_present : an Android app
+|        
+|
+└───teacher_data_present
+|   |   abbsent.py : a script to show students' attendance, happiness
+│   │   teacher_see_questions_bar.py : a script to show students' question words in bar chart
+|   |   keyboard.py : a test script based on user's input (bar chart)
+```
 
-* 學生端 - raspberry pi
-* 手機資料呈現 - android studio
-* 老師端 - python panda 資料呈現 、 語音模組
-* server端 - linux server python 資料整理
-
-## 最新idea ~~
-* **增加照相機，定時幫學生照相，影像辨識。（使用微軟 emotion api** 
-
-    * 目標：定時紀錄學生的狀態（分為兩種：疲累、困惑），以座位表格的方式呈現（正常：綠；疲累：紅；困惑：灰）
-    *  老師端呈現：學生座位表格的狀況（表格）、精神狀況的統計（bar chart）
+## 影響以及應用
+* 我們做到了:
+    * 以較小的干擾和負擔提供額外的學習資源
+    * 提升師生課堂間的雙向互動服務
+    * 及時反應教學成效，有助提升教學效率
+* 可以用來:
+    * 協助學生複習
+    * 作為遠距教學的輔助工具
 
 
-## 工作分配
-
-沂謙 - 語音辨識模組、老師端code 整合
-
-慕哲 - 書本資料庫建立、json資料model打包資、影像辨識api
-
-瀚墨 - json wiki 資料整理、老師，學生開發板使用
-
-冠豪 - linux server 架設、python flask 網路環境建立、app資料呈現，學生端code整合
-
-## 目標
-
-1. 最小可行性專案完成（先可以單詞的 definition 查詢）
-2. 以生物 campbell 為藍圖
-3. 老師的資料呈現應該不會很難～ 推薦用python panda 來呈現～ 先把自己的用好再來認領ＸＤ
-4. 嘿嘿～就先做啦ＸＤ到時候黑客松可以狂吃零食少點壓力，更多時間來做延伸的目標
-5. 螢幕顯示：老師端 資料呈現！
-6. 新增直接提問系統
 
 ## 未來延伸性
 1. 增進查詢的演算法
-2. 除了單詞 definition 查詢，增加不懂相關內容的補充
+2. 建立課本資料庫，輔助語音判讀對於專有名詞的精確性
+4. 除了單詞 definition 查詢，增加不懂相關內容的補充、課本內容索引
+5. 作為網路影音教學資源的附加功能
+
+## 工作分配
+
+沂謙 - google、microsoft語音辨識API、Understood自然語意理解training
+
+慕哲 - json資料打包資、Understood自然語意理解training、microsoft影像辨識API、老師端資料呈現
+
+瀚墨 - 搜尋引擎json整理、老師端rpi、學生端rpi、老師端程式整合(收音模組)、學生端程式整合(Pi camera)
+
+冠豪 - linux server架設、Flask API環境建立、學生端Android app資料呈現，老師端資料呈現、state傳送設計
+
+
 
