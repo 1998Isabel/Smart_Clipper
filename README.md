@@ -31,7 +31,7 @@
 
 ## 檔案介紹及使用
 ```
-Smart_Clippr
+Smart_Clipper
 │   README.md
 │   data.json : a json file to store student's question key word
 │
